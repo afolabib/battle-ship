@@ -36,6 +36,30 @@ def get_player_answer(self, size, ships, display):
         break
     return self.guesses_made[-1]
 
+def validate_player_answer(self, size, reesponse):
+    try:
+        response = int(response)
+        if response < 0 or response > size - 1:
+                print(f"Please enter a number between 0 and {size - 1}!")
+                return False
+
+    except:
+        print(
+            "Invalid entry: You must enter a whole number." +
+                "Please try again!"
+        )
+        return False
+
+    return True
 
 
+def check_answer(self, size, response, ships, display):
+    if response in self.guesses_made:
+            if self.username != "Computer":
+                print(
+                    "You have already tried those coordinates," +
+                    " please choose new ones!"
+                )
+            return True
 
+        return False
