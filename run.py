@@ -105,4 +105,32 @@ class Board:
         return int(board_size)
 
     def validate_board_size(self, size):
+        try:
+            row_size = int(size)
+            if row_size < 5 or row_size > 8:
+                print("Please enter a number between 5 and 8")
+                return False
+        except:
+            print(
+                "Invalid entry: You must enter a whole number." +
+                "Please try again!"
+            )
+            return False
+
+        return True
+
+    def generate_ship_location(self):
+        ship_pos = set()
+        while len(ship_pos) < 5:
+            nums = (randint(0, self.size - 1), randint(0, self.size - 1))
+            ship_pos.add(nums)
+
+        ship_pos_list = list(ship_pos)
+
+        self.ships = ship_pos_list
+
+    def create_board(self):
+        board = [["-  " for x in range(self.size)] for y in range(self.size)]
+
+        self.display = board
 
