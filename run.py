@@ -83,3 +83,26 @@ def display_result(self, ships, display):
             f"{self.guesses_made[-1][1]})"
         )
         print(f"{self.username} hits the water...\n")
+
+class Board:
+    def __init__(self, player, size, ships, display):
+        self.player = player
+        self.size = size
+        self.ships = ships
+        self.display = display
+
+    def new_board(self):
+        while True:
+            board_size = input(
+                "Please enter the number of rows/columns " +
+                "for the boards(Must be between 5 and 8):\n"
+            )
+            if self.validate_board_size(board_size):
+                print(f"You have chosen a board size of {board_size}")
+                break
+
+        self.size = int(board_size)
+        return int(board_size)
+
+    def validate_board_size(self, size):
+
