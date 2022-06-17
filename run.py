@@ -63,3 +63,23 @@ def check_answer(self, size, response, ships, display):
             return True
 
         return False
+
+
+def display_result(self, ships, display):
+    for x, y in ships:
+            if self.guesses_made[-1] == [x, y]:
+                print(
+                    f"\n{self.username} guessed: ({self.guesses_made[-1][0]}" +
+                    f",{self.guesses_made[-1][1]})"
+                )
+                print(f"{self.username} scores a direct hit!!!")
+                display[x][y] = "x  "
+                self.increment_score()
+                return True
+
+        display[self.guesses_made[-1][0]][self.guesses_made[-1][1]] = "o  "
+        print(
+            f"{self.username} guessed: ({self.guesses_made[-1][0]}," +
+            f"{self.guesses_made[-1][1]})"
+        )
+        print(f"{self.username} hits the water...\n")
